@@ -1,293 +1,39 @@
-:root {
-  --fontSizeDesktop: 3.5rem;
-  --lineHeightDesktop: 4rem;
-
-  --fontSizeHeadlineDesktop: 5rem;
-  --lineHeightHeadlineDesktop: 5.4rem;
-
-  --fontSizeDesktopLarge: 5rem;
-  --lineHeightDesktopLarge: 5.7rem;
-  --fontSizeHeadlineDesktopLarge: 7rem;
-  --lineHeightHeadlineDesktopLarge: 7.98rem;
-
-
-  --fontSizeMobile: 2.5rem;
-  --lineHeightMobile: 2.85rem;
-
-  --fontSizeHeadlineMobile: 3.5rem;
-  --lineHeightHeadlineMobile: 4rem;
-
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2vw;
+  padding: 2vw;
 }
 
-
-
-
-/* Font by  Clara Sambot -> https: //typotheque.genderfluid.space/DINdong.html*/
-
-@font-face {
-  font-family: Arial;
-  
+.about {
+  grid-column: 1;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-/* General CSS */
-html {
-  background: #fff;
-  z-index: 1;
-  padding: 0;
-  margin: 0;
-
-  /* type */
-  font-size: 1vh;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.project {
+  text-align: center;
 }
 
-body {
-  font-family: Arial;
-  font-size: var(--fontSizeDesktop);
-  line-height: var(--lineHeightDesktop);
-}
-
-a,
-button,
-input,
-label {
-  cursor: pointer;
-}
-
-ul,
-li,
-dl {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-p {
-  margin-top: 0;
-}
-
-h1,
-h2,
-h3 {
-  font-size: var(--fontSizeHeadlineDesktop);
-  line-height: var(--lineHeightHeadlineDesktop);
-  font-weight: normal;
-  text-transform: uppercase;
-  padding: 0;
-  margin: 0;
-}
-
-/* Styling for Links */
-
-a {
-  font-size: var(--fontSizeDesktop);
-  line-height: var(--lineHeightDesktop);
-  transition: filter ease 300ms;
-}
-
-a:link,
-a:visited {
-  color: blue;
-}
-
-a:hover {
-  filter: blur(2px);
-}
-
-/* Styling for Footer */
-
-footer {
-  z-index: 2;
-  background-color: #fff;
-  border-top: 1px solid black;
-  position: fixed;
-  height: 7rem;
-  /* compatible withs */
+.project img {
   width: 100%;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  width: fill-available;
-
-  bottom: 0;
-  left: 0;
-  padding: 0 1rem 0 1rem;
-  display: flex;
-  align-items: center;
-  transform: translateY(1px);
-
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
 }
 
-footer>a,
-footer>a:link,
-footer>a:visited,
-#returnToIndex>a {
-  color: black;
-  text-decoration: none;
-  transition: none;
+.project img:hover {
+  transform: scale(1.02);
 }
 
-footer>a:hover,
-#returnToIndex>a {
-  filter: none;
-}
-
-
-/*Remove scrollbar space*/
-::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
-}
-
-html {
-  scrollbar-width: none;
-  overflow: -moz-scrollbars-none;
-}
-
-/* Selection */
-::selection {
-  color: white;
-  background: rgb(0, 0, 0);
-}
-
-
-/* CSS for index */
-
-.main {
-  display: flex;
-  position: fixed;
-  height: 94vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  line-break: anywhere;
-}
-
-section {
-  height: 100vh;
-  padding: 1rem;
-
-}
-
-.spacer {
-  z-index: -1;
-  width: 100vw;
-  height: 2000vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-
-#footerIndex {
-  justify-content: space-between;
-}
-
-.hMain {
-  font-size: var(--fontSizeDesktop);
-  line-height: var(--lineHeightDesktop);
-  font-weight: normal;
-  padding: 0;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.headlineLarge {
-  font-size: var(--fontSizeHeadlineDesktopLarge);
-  line-height: var(--lineHeightHeadlineDesktopLarge);
-}
-
-/*the following ID objs are going to receive updates from JS*/
-#obj1 {
-  width: auto;
-  overflow-y: hidden;
-}
-
-#obj2 {
-  width: auto;
-  overflow-y: hidden;
-}
-
-#obj3 {
-  width: auto;
-  overflow-y: hidden;
-}
-
-#obj4 {
-  width: auto;
-  overflow-y: hidden;
-}
-
-
-/* CSS for Imprint & easyAccess */
-
-.easyAccess,
-.easyAccess a {
-  font-size: var(--fontSizeDesktopLarge);
-  line-height: var(--lineHeightDesktopLarge);
-}
-
-#returnToIndex {
-  justify-content: end;
-}
-
-#returnToIndex>a {
-  font-size: var(--fontSizeDesktop);
-  line-height: var(--lineHeightDesktop);
-}
-
-
-/* Mediakit for mobile/portrait */
-
-/* 
-- keine blurry links
-- kleine links für easy access
-- return  im print und easy access klein
-
-
-*/
-
-
-@media (orientation: portrait) {
-
-  a,
-  p,
-  dl,
-  .hMain,
-  .easyAccess,
-  .easyAccess a,
-  #returnToIndex>a {
-    font-size: var(--fontSizeMobile);
-    line-height: var(--lineHeightMobile);
+@media (max-width: 768px) {
+  .main-grid {
+    grid-template-columns: 1fr;
   }
 
-  a:hover {
-    filter: none;
+  .project, .about {
+    text-align: left;
+    margin-bottom: 2rem;
   }
-
-  h1,
-  h2,
-  h3,
-  .headlineLarge {
-    font-size: var(--lineHeightHeadlineMobile);
-    line-height: var(--lineHeightHeadlineMobile);
-  }
-
-  section {
-    padding: 1rem 2rem 0rem 1rem;
-  }
-
-  #obj1 {
-    padding-right: 1.5rem;
-  }
-
-  #obj4 {
-    padding-right: 3rem;
-  }
-
-  footer {
-    height: 5rem;
-  }
-
 }
