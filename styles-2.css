@@ -1,70 +1,66 @@
-/* reset and full‑viewport */
+/* reset & full‑viewport */
 html, body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   overflow-x: hidden;
-  height: 100vh;
+  height: 100%;
   font-family: sans-serif;
 }
 
-/* horizontal scroll container */
-.horizontal-scroll-container {
-  display: flex;
-  flex-direction: row;
-  width: 500vw;          /* 5 panels × 100vw */
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  scroll-snap-type: x mandatory;
+/* spacer: controls total scroll length */
+.spacer {
+  width: 100vw;
+  height: 500vh; /* 5 panels × 100vh */
 }
 
-/* each panel = one viewport */
-.panel {
+/* fixed horizontal “rail” of panels */
+.main {
+  position: fixed;
+  top: 0; left: 0;
+  display: flex;
   width: 100vw;
   height: 100vh;
+}
+
+/* each panel scrolls vertically if its content overflows */
+.main section {
   flex-shrink: 0;
-  scroll-snap-align: start;
-  padding: 3vw;
+  width: auto;       /* set by JS */
+  height: 100vh;
+  overflow-y: auto;
   box-sizing: border-box;
-  overflow-y: auto;      /* allow vertical scrolling inside panel if needed */
+  padding: 2vw;
 }
 
-/* styling for the About panel */
-.about {
-  background-color: #fffaf5;
+/* simple styling */
+#obj1 { background: #fffaf5; }
+#obj2,
+#obj3,
+#obj4,
+#obj5 { background: #f3f3f3; }
+
+.main section h1,
+.main section h2 {
+  margin-top: 0;
 }
 
-/* styling for project panels */
-.project {
-  background-color: #f3f3f3;
-  text-align: center;
-}
-
-.project img {
+/* project images */
+.main section img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
-
-.project img:hover {
+.main section img:hover {
   transform: scale(1.02);
 }
 
-/* responsive: stack panels vertically under 768px */
+/* mobile fallback: stack panels vertically */
 @media (max-width: 768px) {
-  .horizontal-scroll-container {
-    position: static;
-    display: block;
-    width: auto;
-    height: auto;
-  }
-  .panel {
-    width: auto;
-    height: auto;
+  .spacer { height: auto; }
+  .main { position: static; display: block; }
+  .main section {
+    width: 100%; height: auto;
     margin-bottom: 2rem;
-    scroll-snap-align: none;
   }
 }
