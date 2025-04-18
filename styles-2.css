@@ -1,17 +1,43 @@
-.main-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2vw;
-  padding: 2vw;
+/* reset and full‑viewport */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100vh;
+  font-family: sans-serif;
 }
 
+/* horizontal scroll container */
+.horizontal-scroll-container {
+  display: flex;
+  flex-direction: row;
+  width: 500vw;          /* 5 panels × 100vw */
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  scroll-snap-type: x mandatory;
+}
+
+/* each panel = one viewport */
+.panel {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  padding: 3vw;
+  box-sizing: border-box;
+  overflow-y: auto;      /* allow vertical scrolling inside panel if needed */
+}
+
+/* styling for the About panel */
 .about {
-  grid-column: 1;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  background-color: #fffaf5;
 }
 
+/* styling for project panels */
 .project {
+  background-color: #f3f3f3;
   text-align: center;
 }
 
@@ -27,13 +53,18 @@
   transform: scale(1.02);
 }
 
+/* responsive: stack panels vertically under 768px */
 @media (max-width: 768px) {
-  .main-grid {
-    grid-template-columns: 1fr;
+  .horizontal-scroll-container {
+    position: static;
+    display: block;
+    width: auto;
+    height: auto;
   }
-
-  .project, .about {
-    text-align: left;
+  .panel {
+    width: auto;
+    height: auto;
     margin-bottom: 2rem;
+    scroll-snap-align: none;
   }
 }
