@@ -25,10 +25,8 @@
 /* Font by  Clara Sambot -> https: //typotheque.genderfluid.space/DINdong.html*/
 
 @font-face {
-  font-family: DINdong;
-  src: url(fonts/DINdong.woff2) format('woff2'),
-    url(fonts/DINdong.woff) format('woff'),
-    url(fonts/DINdong.ttf) format('truetype');
+  font-family: Arial;
+  
 }
 
 /* General CSS */
@@ -46,7 +44,7 @@ html {
 }
 
 body {
-  font-family: Dindong;
+  font-family: Arial;
   font-size: var(--fontSizeDesktop);
   line-height: var(--lineHeightDesktop);
 }
