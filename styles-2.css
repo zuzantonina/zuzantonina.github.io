@@ -1,64 +1,295 @@
-body {
+:root {
+  --fontSizeDesktop: 3.5rem;
+  --lineHeightDesktop: 4rem;
+
+  --fontSizeHeadlineDesktop: 5rem;
+  --lineHeightHeadlineDesktop: 5.4rem;
+
+  --fontSizeDesktopLarge: 5rem;
+  --lineHeightDesktopLarge: 5.7rem;
+  --fontSizeHeadlineDesktopLarge: 7rem;
+  --lineHeightHeadlineDesktopLarge: 7.98rem;
+
+
+  --fontSizeMobile: 2.5rem;
+  --lineHeightMobile: 2.85rem;
+
+  --fontSizeHeadlineMobile: 3.5rem;
+  --lineHeightHeadlineMobile: 4rem;
+
+}
+
+
+
+
+/* Font by  Clara Sambot -> https: //typotheque.genderfluid.space/DINdong.html*/
+
+@font-face {
+  font-family: DINdong;
+  src: url(fonts/DINdong.woff2) format('woff2'),
+    url(fonts/DINdong.woff) format('woff'),
+    url(fonts/DINdong.ttf) format('truetype');
+}
+
+/* General CSS */
+html {
+  background: #fff;
+  z-index: 1;
+  padding: 0;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: white;
-  color: black;
+
+  /* type */
+  font-size: 1vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
+body {
+  font-family: Dindong;
+  font-size: var(--fontSizeDesktop);
+  line-height: var(--lineHeightDesktop);
+}
+
+a,
+button,
+input,
+label {
+  cursor: pointer;
+}
+
+ul,
+li,
+dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-size: var(--fontSizeHeadlineDesktop);
+  line-height: var(--lineHeightHeadlineDesktop);
+  font-weight: normal;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+}
+
+/* Styling for Links */
+
+a {
+  font-size: var(--fontSizeDesktop);
+  line-height: var(--lineHeightDesktop);
+  transition: filter ease 300ms;
+}
+
+a:link,
+a:visited {
+  color: blue;
+}
+
+a:hover {
+  filter: blur(2px);
+}
+
+/* Styling for Footer */
+
+footer {
+  z-index: 2;
+  background-color: #fff;
+  border-top: 1px solid black;
+  position: fixed;
+  height: 7rem;
+  /* compatible withs */
+  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
+
+  bottom: 0;
+  left: 0;
+  padding: 0 1rem 0 1rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  transform: translateY(1px);
+
+}
+
+footer>a,
+footer>a:link,
+footer>a:visited,
+#returnToIndex>a {
+  color: black;
+  text-decoration: none;
+  transition: none;
+}
+
+footer>a:hover,
+#returnToIndex>a {
+  filter: none;
+}
+
+
+/*Remove scrollbar space*/
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+html {
+  scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
+}
+
+/* Selection */
+::selection {
+  color: white;
+  background: rgb(0, 0, 0);
+}
+
+
+/* CSS for index */
+
+.main {
+  display: flex;
+  position: fixed;
+  height: 94vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  line-break: anywhere;
+}
+
+section {
   height: 100vh;
-  padding: 20px;
+  padding: 1rem;
+
 }
 
-.grid,
-.secondary-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  width: 100%;
-  max-width: 600px;
+.spacer {
+  z-index: -1;
+  width: 100vw;
+  height: 2000vh;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.item {
-  padding: 20px;
-  background-color: black;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
+
+#footerIndex {
+  justify-content: space-between;
 }
 
-.item:hover {
-  background-color: grey;
+.hMain {
+  font-size: var(--fontSizeDesktop);
+  line-height: var(--lineHeightDesktop);
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
 }
 
-.output {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 600px;
-  padding: 20px;
-  text-align: justify;
+.headlineLarge {
+  font-size: var(--fontSizeHeadlineDesktopLarge);
+  line-height: var(--lineHeightHeadlineDesktopLarge);
 }
 
-.text-content {
-  font-size: 16px;
-  line-height: 1.5;
+/*the following ID objs are going to receive updates from JS*/
+#obj1 {
+  width: auto;
+  overflow-y: hidden;
 }
 
-button#back-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+#obj2 {
+  width: auto;
+  overflow-y: hidden;
+}
+
+#obj3 {
+  width: auto;
+  overflow-y: hidden;
+}
+
+#obj4 {
+  width: auto;
+  overflow-y: hidden;
+}
+
+
+/* CSS for Imprint & easyAccess */
+
+.easyAccess,
+.easyAccess a {
+  font-size: var(--fontSizeDesktopLarge);
+  line-height: var(--lineHeightDesktopLarge);
+}
+
+#returnToIndex {
+  justify-content: end;
+}
+
+#returnToIndex>a {
+  font-size: var(--fontSizeDesktop);
+  line-height: var(--lineHeightDesktop);
+}
+
+
+/* Mediakit for mobile/portrait */
+
+/* 
+- keine blurry links
+- kleine links für easy access
+- return  im print und easy access klein
+
+
+*/
+
+
+@media (orientation: portrait) {
+
+  a,
+  p,
+  dl,
+  .hMain,
+  .easyAccess,
+  .easyAccess a,
+  #returnToIndex>a {
+    font-size: var(--fontSizeMobile);
+    line-height: var(--lineHeightMobile);
+  }
+
+  a:hover {
+    filter: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  .headlineLarge {
+    font-size: var(--lineHeightHeadlineMobile);
+    line-height: var(--lineHeightHeadlineMobile);
+  }
+
+  section {
+    padding: 1rem 2rem 0rem 1rem;
+  }
+
+  #obj1 {
+    padding-right: 1.5rem;
+  }
+
+  #obj4 {
+    padding-right: 3rem;
+  }
+
+  footer {
+    height: 5rem;
+  }
+
 }
