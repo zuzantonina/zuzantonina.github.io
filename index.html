@@ -1,66 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zuzanna Antonina Wieczorek</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Video</title>
+    <style>
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 1585px;
+            height: 900px;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Spacer drives the scroll length -->
-  <div class="spacer"></div>
+<div class="video-container">
+    <video src="video/Presentatie0406.mov" autoplay muted loop></video>
+</div>
 
-  <!-- Fixed flex container of panels -->
-  <div class="main">
-    <!-- Panel 1: About -->
-    <section id="obj1">
-      <h1>About</h1>
-      <p>Zuzanna Antonina Wieczorek, born 2005, is a Polish artist based in The Netherlands…</p>
-      <dl>
-        <li>CONTACT</li>
-        <li>+48 538 434 633</li>
-        <li><a href="mailto:wieczorekzuzia@gmail.com">wieczorekzuzia@gmail.com</a></li>
-      </dl>
-    </section>
-
-    <!-- Panel 2: Project 1 -->
-    <section id="obj2">
-      <h2>The Aftermath of Entertainment</h2>
-      <a href="images/aftermath-large.jpg" target="_blank">
-        <img src="images/aftermath-thumb.jpg" alt="" />
-      </a>
-      <p>MOM art space, Hamburg (2023)</p>
-    </section>
-
-    <!-- Panel 3: Project 2 -->
-    <section id="obj3">
-      <h2>New Old Black Forest</h2>
-      <a href="images/blackforest-large.jpg" target="_blank">
-        <img src="images/blackforest-thumb.jpg" alt="" />
-      </a>
-      <p>E‑Werk Freiburg (2014)</p>
-    </section>
-
-    <!-- Panel 4: Project 3 -->
-    <section id="obj4">
-      <h2>UNFAIR Amsterdam</h2>
-      <a href="images/unfair-large.jpg" target="_blank">
-        <img src="images/unfair-thumb.jpg" alt="" />
-      </a>
-      <p>Art fair identity (2023)</p>
-    </section>
-
-    <!-- Panel 5: Project 4 -->
-    <section id="obj5">
-      <h2>UFER 2.0</h2>
-      <a href="images/ufer-large.jpg" target="_blank">
-        <img src="images/ufer-thumb.jpg" alt="" />
-      </a>
-      <p>Südufer Freiburg (2017)</p>
-    </section>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
